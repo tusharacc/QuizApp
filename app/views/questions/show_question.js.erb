@@ -1,0 +1,3 @@
+$('#<%=@question_type%>').css('display','inline');
+$('.title').attr( "disabled", "disabled" );
+$('#<%=@question_type%>').html("<%= j render(:partial => 'questions/list_questions') %>");

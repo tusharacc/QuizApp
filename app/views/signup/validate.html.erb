@@ -1,0 +1,13 @@
+<h1 class="text-center">Welcome to Q&A</h1>
+
+<div class="container">
+	<% flash.each do |key, value| %>
+        <div class="posit alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <%= form_tag '/signup/verify', class: "form-inline" do %>
+        <div class="form-group" >
+            <%= text_field_tag 'userName',nil,placeholder: 'Enter User Name..',style:'margin-top:20px;margin-left:300%;' %>
+        </div>
+        <%= submit_tag 'Validate',  class:'btn btn-primary',id:'submit',style:'margin-top:20px;margin-left:40%;' %>
+    <%end%>
+</div>

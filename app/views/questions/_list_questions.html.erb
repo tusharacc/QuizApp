@@ -1,0 +1,41 @@
+<% @question.each do |q| %>
+  <div class="jumbotron posit" id="<%= q.id%>">
+  	<p><%= q.question %></p>
+  	<form>
+  		<input type="radio" name="<%= q.id %>" value="<%= q.option1%>"><%= q.option1%></br>
+		  <input type="radio" name="<%= q.id %>" value="<%= q.option2%>"><%= q.option2%></br>
+		  <input type="radio" name="<%= q.id %>" value="<%= q.option3%>"><%= q.option3%></br>
+		  <input type="radio" name="<%= q.id %>" value="<%= q.option4%>"><%= q.option4%></br>
+	</form>
+  </div>
+<%end%>
+<button type="button" id="<%= @question_type %>" class="btn btn-primary posit" style="margin-bottom:20px;">
+  Submit
+</button>
+<script>
+  $("button").click (function(){
+
+    var elemList = $('input').get();
+    
+    var userAnswer = [];
+    
+    for (i = 0, len = elemList.length; i < len; i++) {
+      var elem = elemList[i];
+      var state = elem.checked;
+      if (state) {   
+        var myMap = {};     
+        myMap.question_id = elem.name;
+        myMap.user_answer = elem.value;
+        console.log('The length of array is' + myMap.question_id + " " + myMap.user_answer);
+        userAnswer.push(myMap);
+        state=false; 
+      }
+    }
+
+    $.ajax({
+      url: "/questions_controller/check_answers",
+      data:{answers: userAnswer}
+    });
+
+  });
+</script>

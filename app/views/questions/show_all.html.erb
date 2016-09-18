@@ -1,0 +1,8 @@
+<h1 class="text-center">Welcome to Q&A</h1>
+<p><%= @userName %></p>
+<div class="container">
+	<% @title.each do |t| %>
+		<p class="well posit title" data-remote="true"><%= t.title %></p>
+		<div class="question" style="display:none;" id="<%= t.title %>"></div>
+	<%end%>
+</div>

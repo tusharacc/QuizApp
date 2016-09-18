@@ -1,0 +1,7 @@
+<% @response.each do |my_hash| %>
+	<% if my_hash['response'] == 'Correct' %>
+		$('#<%=my_hash[:question_id]%>').css('background-color','green');
+	<%else%>
+		$('#<%=my_hash[:question_id]%>').css('background-color','red');
+	<%end%>
+<%end%>
