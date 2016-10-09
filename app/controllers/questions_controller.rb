@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   require 'json'
+  skip_before_filter :verify_authenticity_token
   def show_question
   	@question_type = params[:question_type]
   	logger.debug "The incoming title is #{@question_type}"
@@ -34,5 +35,43 @@ class QuestionsController < ApplicationController
         format.js 
         format.html
       end
+  end
+
+  def show_upload_screen
+
+  end
+
+  def upload_questions
+      
+    @errored_questions = 0
+    @updated_questions = 0
+    tempfl = params[:file]
+   
+    question_array = JSON.parse(tempfl.tempfile.read)
+
+    question_array.each do |question_hash|
+      logger.debug "the hash i am trying is #{question_hash}"
+      id_rel = Title.get_title_id(question_hash["title"])
+      if id_rel.nil? 
+        id = Title.insert_title(question_hash["title"])
+      else
+        id = id_rel.id
+      end
+      question_updated = Title.update_questions(id, question_hash)
+      logger.debug "the return is #{question_updated}"
+      if question_updated == "Not Saved"
+        @errored_questions += 1
+      else
+        @updated_questions += 1
+      end
+    end
+    logger.debug "the data value is #{@errored_questions} #{@updated_questions}"
+    respond_to do |format|
+      if request.xhr?
+        format.js {}
+      else 
+        format.html
+      end
+    end
   end
 end

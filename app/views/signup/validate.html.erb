@@ -1,13 +1,24 @@
-<h1 class="text-center">Welcome to Q&A</h1>
+<div class="well header no-padding-margin">
+    <h1 class="text-center no-padding-margin" style="font-family: 'Courgette', cursive;">Litmus Test</h1>
+</div>
 
-<div class="container">
+<div style="margin-top:40px;">
 	<% flash.each do |key, value| %>
         <div class="posit alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <%= form_tag '/signup/verify', class: "form-inline" do %>
-        <div class="form-group" >
-            <%= text_field_tag 'userName',nil,placeholder: 'Enter User Name..',style:'margin-top:20px;margin-left:300%;' %>
-        </div>
-        <%= submit_tag 'Validate',  class:'btn btn-primary',id:'submit',style:'margin-top:20px;margin-left:40%;' %>
-    <%end%>
 </div>
+    <div class="jumbotron div-centre" style="background-color:white;opacity: 1.0;">
+      
+            <div id="form-container" style="margin:0 10px 0 10px;" >
+            <%= form_tag '/signup/verify' do  %>
+                <%= text_field_tag 'username',nil,placeholder: 'Enter User Name..',class:'form-control',style:'background-color:black;color:white;' %>
+                <%= password_field_tag 'password',nil,placeholder: 'Enter Password..',class:'form-control',style:'margin-top:10px;background-color:black;color:white;' %>  
+            <%= submit_tag 'Validate',  class:'btn btn-info',id:'submit',style:'opacity: 1.0;margin-top:10px;margin-left:20%;' %>
+            <%end%>
+            </div>
+            <div id="box2"></div>
+            <div class="box3" style="margin:0;">
+                <p class="text-primary" style="margin-top:5%;"> If you don't have username and password, please reach out to admin @ unreachable@mordor.com</p>
+            </div>     
+    </div>
+

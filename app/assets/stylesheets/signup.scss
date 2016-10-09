@@ -1,3 +1,31 @@
 // Place all the styles related to the signup controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.div-centre {
+	margin:0 60% 0 30%;
+	width:50%;
+	height:50%;
+	display: flex;
+	border-bottom:1px solid black;
+	border-radius:8px;
+}
+
+.clear-content{
+  margin:0;
+  padding:0;
+}
+
+#form-container{
+  width:60%;
+  float:left;
+}
+#box2{
+  float:left;
+  border: 1px solid grey;
+  margin-left:10px;
+  margin-right:10px;
+}
+#box3{
+  width:20%;
+  float:left;
+}

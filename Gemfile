@@ -47,4 +47,5 @@ end
 
 gem 'bootstrap-sass'
 gem 'json'
+gem 'bcrypt'
 

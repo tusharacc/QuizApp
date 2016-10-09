@@ -4,9 +4,15 @@ Rails.application.routes.draw do
   #resources :index
  
   root 'signup#validate'
-  post "signup/verify" => 'signup#verify'
-  get "questions_controller/show_question" => "questions#show_question"
+  post "/signup/verify" => 'signup#verify'
+  get "/signup/verify" => 'signup#verify'
+
+  get "/questions_controller/show_question" => "questions#show_question"
   get "/questions_controller/check_answers" => "questions#check_answers"
+  get "/signup/create_user" => 'signup#create_user'
+  post "/signup/create_user" => 'authenticates#create_user'
+  get "/questions/show_upload_screen" => 'questions#show_upload_screen'
+  post "/questions/upload_questions" => 'questions#upload_questions' 
                                               
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

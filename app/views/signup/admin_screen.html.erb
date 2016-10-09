@@ -1,0 +1,17 @@
+<div class="well header no-padding-margin">
+    <h1 class="text-center no-padding-margin" style="font-family: 'Courgette', cursive;">Litmus Test</h1>
+</div>
+
+<div style="margin-top:30px;">
+	<% flash.each do |key, value| %>
+        <div class="posit alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+</div>
+
+<div class="jumbotron" style="margin:20% 30% 30% 30%;background: linear-gradient(15deg, #ff471a, #ffff00);border-radius:10px;display:flex;">
+	<a href="<%= signup_create_user_url%>"class="btn active" style="flex:1;">Add a User</a>
+	<a href="<%= questions_show_upload_screen_url%>"class="btn btn-link" style="flex:1;">Upload Questions</a>
+	
+	<!--button class="btn btn-link" style="flex:1;">Download Template</button>-->
+	<%= link_to 'Download Template',"#{Rails.root}/public/dest.pdf", class:'btn btn-link',style:'flex:1;',download: ''%>
+</div>

@@ -1,0 +1,33 @@
+<div class="well header no-padding-margin">
+    <h1 class="text-center no-padding-margin" style="font-family: 'Courgette', cursive;">Litmus Test</h1>
+</div>
+<div style="position:relative;margin-top:40px;">
+	<% flash.each do |key, value| %>
+        <div class="posit alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+</div>
+<div class="jumbotron" style="margin:20% 30% 30% 30%;background: linear-gradient(15deg, #ff471a, #ffff00);border-radius:10px;">
+
+	<%= form_tag '/questions/upload_questions',remote: true, multipart: true,format: "js", class: "form-horizontal" do |f|%>
+	      <div class="form-group">
+	        <%= file_field_tag "file",id:"file_tag", type: "hidden",class: "btn btn-primary control-label col-sm-8"  %>
+
+	        <%= submit_tag 'Process',id:"submit_tag",class: "btn btn-primary control-label col-sm-4" %>
+
+	      </div>
+	<%end%>
+	
+	<div class="well well-sm" id="show_uploaded_question_summary">
+	<ul>
+		<li>Number of Question Updated <%=@updated_questions%></li>
+		<li>Number of Question Failed <%=@errored_questions%></li>
+	</ul>
+</div>
+</div>
+<script>
+	var file_tag = document.getElementById("file_tag");
+	var submit_tag = document.getElementById("submit_tag");
+	file_tag.disabled =  true;
+	submit_tag.disabled = true;
+</script>
+

@@ -1,0 +1,15 @@
+<div class="well header no-padding-margin">
+    <h1 class="text-center no-padding-margin" style="font-family: 'Courgette', cursive;">Litmus Test</h1>
+</div>
+<div style="position:relative;margin-top:40px;">
+	<% flash.each do |key, value| %>
+        <div class="posit alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+</div>
+<div class="jumbotron" style="margin:20% 30% 30% 30%;background: linear-gradient(15deg, #ff471a, #ffff00);border-radius:10px;display:flex;">
+	<%= form_for @user,url: "/signup/create_user",html: {class: "form-inline"} do |f| %>
+	  <%= f.text_field :username, class:"form-control",placeholder:"Enter User ID...." %>
+	  <%= f.password_field :password,class:"form-control",placeholder:"Enter Password..."%>
+	  <%= f.submit "Create User", class: "btn btn-primary" %>
+	<% end %>
+</div>

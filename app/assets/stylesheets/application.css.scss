@@ -28,3 +28,31 @@
 	background-color:#ffb3b3;
 	color:red;
 }
+
+body { 
+  background: url('bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.header {
+	position:fixed;
+	top:10px;
+	width:100%;
+	background-color:black;
+	color:red;
+}
+
+.no-padding-margin {
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+.div-centre{
+	margin-left:30%;
+	margin-top:20%;
+	margin-right:30%;
+}
