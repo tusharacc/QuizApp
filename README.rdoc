@@ -1,28 +1,7 @@
-== README
+This is a quiz app powered by Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Functionality - 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1. Supports Admin, as a Admin, it can add user and upload questions.
+2. For rest of the user, they can give test and see how they perform.
+3. Question can be categorised in different buckets.
